@@ -39,7 +39,7 @@ def context_patch(fs_file, filename) -> dict:  # 接收两个字典对比
     new_fs = {}
     permission_d = fs_file.get(list(fs_file)[0])
     if not permission_d:
-        permission_d = 'u:object_r:system_file:s0'
+        permission_d = ['u:object_r:system_file:s0']
     for i in filename:
         if fs_file.get(i):
             new_fs[sub(r'([^-_/a-zA-Z0-9])', r'\\\1', i)] = fs_file[i]
