@@ -45,7 +45,7 @@ def context_patch(fs_file, filename) -> dict:  # 接收两个字典对比
             new_fs[sub(r'([^-_/a-zA-Z0-9])', r'\\\1', i)] = fs_file[i]
         else:
             permission = permission_d
-            if i:
+            if i.isprintable():
                 if i in fix_permission.keys():
                     permission = fix_permission[i]
                 else:
